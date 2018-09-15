@@ -127,6 +127,7 @@ $(function() {
           console.log('hello')
         console.log(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index]);
         //expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
+            expect(entry.innerText === firstFeed[index]).toBe(false);
 
         });
         expect(firstfeed[0]).not.toBe(loadFeed)
