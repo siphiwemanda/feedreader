@@ -88,7 +88,7 @@ $(function() {
 
     describe('Initial Entries', function() {
 
-      beforeEach(function() {
+      beforeEach(function(done) {
         loadFeed(0, done);
 
       });
@@ -96,7 +96,7 @@ $(function() {
         const feed = document.querySelector('.feed')
         expect(feed.children.length>0).toBe(true)
 
-      })
+      });
 
     });
 
@@ -110,8 +110,24 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
 
     describe('New Feed Selection', function (){
+      const feed = document.querySelector('.feed')
+      const firstfeed = [];
 
-    });
+      beforeEach(function (done) {
+        loadFeed(0);
+        array.from(feed.children).forEach(function(entry){
+          firstfeed.push(entry.innerText);
+        });
+        loadFeed(1,done)
+        });
+
+      it('content changes', function(){
+        Array.from(feed.children).forEach(function(entry,index){
+        console.log(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index]);
+
+        });
+        });
+      });
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
