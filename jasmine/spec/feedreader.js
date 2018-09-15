@@ -115,7 +115,7 @@ $(function() {
 
       beforeEach(function (done) {
         loadFeed(0);
-        array.from(feed.children).forEach(function(entry){
+        Array.from(feed.children).forEach(function(entry){
           firstfeed.push(entry.innerText);
         });
         loadFeed(1,done)
