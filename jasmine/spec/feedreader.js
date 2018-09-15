@@ -67,7 +67,8 @@ $(function() {
 
         menu.click();
         expect(body.classList.contains('menu-hidden')).toBe(false);
-        //expect(body.classList.contains('menu-hidden')).toBe(true);
+        menu.click();
+        expect(body.classList.contains('menu-hidden')).toBe(true);
     });
 
     });
@@ -123,11 +124,12 @@ $(function() {
 
       it('content changes', function(){
         Array.from(feed.children).forEach(function(entry,index){
+          console.log('hello')
         console.log(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index]);
         //expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
 
         });
-        expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
+        expect(firstfeed[0]).not.toBe(loadFeed)
 
         });
       });
