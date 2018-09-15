@@ -124,9 +124,11 @@ $(function() {
       it('content changes', function(){
         Array.from(feed.children).forEach(function(entry,index){
         console.log(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index]);
-        expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
+        //expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
 
         });
+        expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
+
         });
       });
 
