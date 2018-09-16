@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it(' url defined', function (){
+         it(' url defined and not empty', function (){
             for(let feed of allFeeds){
               expect(feed.url).toBeDefined();
               expect(feed.url.length).not.toBe(0);
@@ -43,7 +43,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it(' name defined', function(){
+         it(' name defined and not empty', function(){
            for(let feed of allFeeds){
              expect(feed.name).toBeDefined()
              expect(feed.name.length).not.toBe(0)
@@ -56,7 +56,7 @@ $(function() {
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function () {
 
-      it('hides', function () {
+      it('hiden by defult', function () {
       const body = document.querySelector('body');
       expect(body.classList.contains('menu-hidden')).toBe(true);
     });
@@ -93,7 +93,7 @@ $(function() {
         loadFeed(0, done);
 
       });
-      it('works', function () {
+      it('Feed loads', function () {
         const feed = document.querySelector('.feed')
         expect(feed.children.length>0).toBe(true)
 
@@ -112,28 +112,24 @@ $(function() {
 
     describe('New Feed Selection', function (){
       const feed = document.querySelector('.feed')
-      const firstfeed = [];
+      const feedone = [];
 
       beforeEach(function (done) {
         loadFeed(0);
         Array.from(feed.children).forEach(function(entry){
-          firstfeed.push(entry.innerText);
+          feedone.push(entry.innerText);
         });
         loadFeed(1,done)
         });
 
       it('content changes', function(){
         Array.from(feed.children).forEach(function(entry,index){
-          console.log('hello')
-        console.log(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index]);
-        //expect(entry.innerText, firstfeed[index], entry.innerText === firstfeed[index])
-            expect(entry.innerText === firstFeed[index]).toBe(false);
+        console.log(entry.innerText, feedone[index], entry.innerText === feedone[index]);
+        expect(feedone[0]).not.toBe(loadFeed)
+        });
 
         });
-        expect(firstfeed[0]).not.toBe(loadFeed)
-
-        });
-      });
+});
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
