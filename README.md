@@ -1,8 +1,9 @@
-#Loading this porject
-In order to load this project download all the files and open the index file there you
-should be able to see the Jasmine test suite and all the passing tests
+# Loading this project
 
-To find the test code you open the file feedreader.js
+In order to load this project
+* download all the files or clone this  repository  
+* open the index file to view the feed and test suite
+* you can view the source code in jasmine/spec/feedreader.js
 
 # Project Overview
 
