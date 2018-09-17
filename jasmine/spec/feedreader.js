@@ -72,23 +72,26 @@ $(function() {
 
 
     describe('New Feed Selection', function (){
-      const feed = document.querySelector('.feed')
+      let feed = document.querySelector('.feed')
       const feedone = [];
 
       beforeEach(function (done) {
         loadFeed(0);
         Array.from(feed.children).forEach(function(entry){
-          feedone.push(entry.innerText);
+          feedone.push(entry.innerHTML);
         });
         loadFeed(1,done)
+        feed = document.querySelector('.feed')
         });
 
       it('content changes', function(){
-        Array.from(feed.children).forEach(function(entry,index){
-        expect(feedone[0]).not.toBe(loadFeed) //check to make sure it does change
-        });
+        Array.from(feed.children).forEach(function(entry){
+          let i;
+          for(i=0; i < feedone.length; i++){
+          expect(feedone[i]).not.toBe(entry.innerHTML) //check to make sure it does change
+        }});
 
-        });
+      });
 });
 
 
