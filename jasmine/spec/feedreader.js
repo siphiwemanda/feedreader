@@ -32,8 +32,7 @@ $(function() {
          it(' name defined and not empty', function(){
            for(let feed of allFeeds){
              expect(feed.name).toBeDefined()
-             expect(feed.name.length).not.toBe(0)
-             expect(feed.name).toBe('string');
+             expect(feed.name.length).not.toBe(0) //check it's not empty
            }
 
          });
@@ -86,7 +85,7 @@ $(function() {
 
       it('content changes', function(){
         Array.from(feed.children).forEach(function(entry,index){
-        expect(feedone[0]).not.toBe(loadFeed)
+        expect(feedone[0]).not.toBe(loadFeed) //check to make sure it does change
         });
 
         });
