@@ -71,28 +71,56 @@ $(function() {
     });
 
 
-    describe('New Feed Selection', function (){
-      let feed = document.querySelector('.feed')
-      const feedone = [];
+    /*describe('New Feed Selection', function (){
+      let feed
+      let feedone
+      let feedtwo
 
       beforeEach(function (done) {
-        loadFeed(0);
-        Array.from(feed.children).forEach(function(entry){
-          feedone.push(entry.innerHTML);
+        loadFeed(0, function(){
+          feed = document.querySelector('.feed')
+          feedone=feed.textContent
+          console.log(feedone)
+        loadFeed(1, function(){
+          feed = document.querySelector('.feed')
+          feedtwo= feed.textContent
+            console.log(feedtwo)
+            done()
+          });
+
         });
-        loadFeed(1,done)
-        feed = document.querySelector('.feed')
-        });
+      });
+
+
 
       it('content changes', function(){
-        Array.from(feed.children).forEach(function(entry){
-          let i;
-          for(i=0; i < feedone.length; i++){
-          expect(feedone[i]).not.toBe(entry.innerHTML) //check to make sure it does change
-        }});
+          expect(feedone).not.toBe(feedtwo) //check to make sure it does change
+        });
 
-      });
-});
+  });*/
+
+var feedone;
+var feedtwo;
+var  feed;
 
 
+
+          beforeEach(function (done) {
+              loadFeed(0, function () {
+                feed = document.querySelector('.feed')
+                feedone=feed.textContent
+
+                  loadFeed(1, function () {
+                    feed = document.querySelector('.feed')
+                    feedtwo=feed.textContent
+                      done();
+                  });
+              });
+
+          });
+
+
+          it('content changes', function () {
+              expect(feedone).not.toBe(feedtwo);
+          });
 }());
